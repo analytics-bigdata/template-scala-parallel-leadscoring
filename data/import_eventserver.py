@@ -18,14 +18,14 @@ def import_events(client):
   # generate 10 users, with user ids u1,u2,....,u10
   user_ids = ["u%s" % i for i in range(1, 10+1)]
 
-  # generate 50 items, with user ids u1,u2,....,u10
+  # generate 50 items, with item ids i1,i2,....,i50
   item_ids = ["i%s" % i for i in range(1, 50+1)]
 
   # generate 20 pageId
-  page_ids = ["example.com/page%s" % i for i in range(1, 20+1)]
+  page_ids = ["http://localhost:8181/predictionio/page%s.html" % i for i in range(1, 20+1)]
 
   # generate 10 referrerId
-  refferal_ids = ["referrer%s.com" % i for i in range(1, 10+1)]
+  refferal_ids = ["http://localhost:8181/predictionio/page%s.html" % i for i in range(1, 10+1)]
 
   browsers = [ "Chrome", "Firefox", "Safari", "Internet Explorer" ]
 
@@ -33,7 +33,7 @@ def import_events(client):
 
   # simulate user session:
   # generate a session ID
-  for loop in range(0, 50):
+  for loop in range(0, 100):
     session_id = uuid.uuid1().hex
     print "session", session_id
     referrer_id = random.choice(refferal_ids)

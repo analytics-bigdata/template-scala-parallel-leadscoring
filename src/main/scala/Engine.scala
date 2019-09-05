@@ -1,7 +1,7 @@
 package org.template.leadscoring
 
-import io.prediction.controller.IEngineFactory
-import io.prediction.controller.Engine
+import org.apache.predictionio.controller.EngineFactory
+import org.apache.predictionio.controller.Engine
 
 case class Query(
   landingPageId: String,
@@ -13,7 +13,7 @@ case class PredictedResult(
   score: Double
 ) extends Serializable
 
-object LeadScoringEngine extends IEngineFactory {
+object LeadScoringEngine extends EngineFactory {
   def apply() = {
     new Engine(
       classOf[DataSource],
